@@ -1,0 +1,37 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AttributionsTheme" parent="AppTheme">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="ProgressBarTheme" parent="AppTheme">
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+
+    <style name="FooterProgressBarTheme" parent="AppTheme">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="BottomNavigation">
+        <item name="android:background">@android:color/white</item>
+        <item name="itemBackground">@drawable/bottom_navigation_view_item_bg</item>
+        <item name="itemIconTint">@color/navigation_bar_icon_color</item>
+        <item name="itemTextColor">@color/navigation_bar_txt_color</item>
+    </style>
+
+    <style name="DialogTheme">
+        <item name="android:windowEnterAnimation">@anim/slide_left</item>
+        <item name="android:windowExitAnimation">@anim/slide_right</item>
+    </style>
+
+    <style name="searchEditTextTheme" parent="AppTheme">
+        <item name="colorAccent">@android:color/black</item>
+    </style>
+
+</resources>
