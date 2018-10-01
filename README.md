@@ -15,6 +15,10 @@
   <img src="https://github.com/vicky7230/Cucumber/blob/master/graphics/3.png" width="280">
 </p>
 
+# Get it on google play
+
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" width="200">](https://play.google.com/store/apps/details?id=com.vicky7230.cucumber)
+
 # Architecture Blueprint
 ![Blueprint](https://janishar.github.io/images/mvp-app-pics/mvp-arch.png)
 <br>
