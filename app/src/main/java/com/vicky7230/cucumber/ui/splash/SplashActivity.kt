@@ -1,7 +1,7 @@
 package com.vicky7230.cucumber.ui.splash
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.vicky7230.cucumber.R
 import com.vicky7230.cucumber.ui.home.HomeActivity
 import io.reactivex.Observable.timer

@@ -11,13 +11,13 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/recipe_image"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center_vertical" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/recipe_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/search_like_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

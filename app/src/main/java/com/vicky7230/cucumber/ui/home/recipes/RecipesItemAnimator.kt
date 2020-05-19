@@ -1,9 +1,9 @@
 package com.vicky7230.cucumber.ui.home.recipes
 
 import android.animation.*
-import android.support.annotation.NonNull
-import android.support.v7.widget.DefaultItemAnimator
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.NonNull
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.animation.AnticipateOvershootInterpolator
 import android.view.animation.DecelerateInterpolator
@@ -24,8 +24,8 @@ class RecipesItemAnimator : DefaultItemAnimator() {
 
     @NonNull
     override fun recordPreLayoutInformation(
-        @NonNull state: RecyclerView.State, @NonNull viewHolder: RecyclerView.ViewHolder,
-        changeFlags: Int, @NonNull payloads: List<Any>
+            @NonNull state: RecyclerView.State, @NonNull viewHolder: RecyclerView.ViewHolder,
+            changeFlags: Int, @NonNull payloads: List<Any>
     ): RecyclerView.ItemAnimator.ItemHolderInfo {
         if (changeFlags == RecyclerView.ItemAnimator.FLAG_CHANGED) {
             for (payload in payloads) {
@@ -39,10 +39,10 @@ class RecipesItemAnimator : DefaultItemAnimator() {
     }
 
     override fun animateChange(
-        @NonNull oldHolder: RecyclerView.ViewHolder,
-        @NonNull newHolder: RecyclerView.ViewHolder,
-        @NonNull preInfo: RecyclerView.ItemAnimator.ItemHolderInfo,
-        @NonNull postInfo: RecyclerView.ItemAnimator.ItemHolderInfo
+            @NonNull oldHolder: RecyclerView.ViewHolder,
+            @NonNull newHolder: RecyclerView.ViewHolder,
+            @NonNull preInfo: RecyclerView.ItemAnimator.ItemHolderInfo,
+            @NonNull postInfo: RecyclerView.ItemAnimator.ItemHolderInfo
     ): Boolean {
 
         if (preInfo is RecipesItemHolderInfo) {

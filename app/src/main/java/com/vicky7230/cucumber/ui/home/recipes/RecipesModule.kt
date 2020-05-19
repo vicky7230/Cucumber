@@ -1,7 +1,7 @@
 package com.vicky7230.cucumber.ui.home.recipes
 
 import android.content.Context
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.vicky7230.cucumber.di.ApplicationContext
 import com.vicky7230.cucumber.ui.home.ItemOffsetDecoration
 import dagger.Module

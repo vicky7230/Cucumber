@@ -3,7 +3,7 @@ package com.vicky7230.cucumber.ui.home.likes
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.ingredients_dialog_view.view.*
 import javax.inject.Inject
 import android.content.Intent
 import android.net.Uri
-import android.support.customtabs.CustomTabsIntent
+import androidx.browser.customtabs.CustomTabsIntent
 
 
 class LikesFragment : BaseFragment(), LikesMvpView, LikesAdapter.Callback {
@@ -87,7 +87,7 @@ class LikesFragment : BaseFragment(), LikesMvpView, LikesAdapter.Callback {
     }
 
     override fun onSingleClick(sourceUrl: String) {
-        customTabsIntent.launchUrl(activity, Uri.parse(sourceUrl))
+        customTabsIntent.launchUrl(context!!, Uri.parse(sourceUrl))
     }
 
     override fun showIngredients(ingredients: List<String>?) {
@@ -96,12 +96,12 @@ class LikesFragment : BaseFragment(), LikesMvpView, LikesAdapter.Callback {
         val view = layoutInflater.inflate(R.layout.ingredients_dialog_view, null, false)
         view.title.setText(R.string.ingredients)
         view.ingredients_list.adapter =
-                ArrayAdapter(activity, R.layout.ingredients_list_item, ingredients)
+                ArrayAdapter(context!!, R.layout.ingredients_list_item, ingredients!!)
 
-        val dialog = Dialog(activity)
+        val dialog = Dialog(context!!)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(view)
-        dialog.window.attributes.windowAnimations = R.style.DialogTheme
+        dialog.window?.attributes?.windowAnimations = R.style.DialogTheme
         dialog.show()
     }
 

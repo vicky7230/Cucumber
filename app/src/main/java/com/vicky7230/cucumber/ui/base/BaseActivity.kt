@@ -3,8 +3,8 @@ package com.vicky7230.cucumber.ui.base
 import android.app.Dialog
 import android.content.pm.PackageManager
 import android.os.Build
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import com.vicky7230.cucumber.utils.CommonUtils
 

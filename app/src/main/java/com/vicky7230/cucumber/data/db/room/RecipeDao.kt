@@ -1,12 +1,12 @@
 package com.vicky7230.cayenne.data.db.room
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Query
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.vicky7230.cucumber.data.network.model.recipes.Recipe
 import io.reactivex.Flowable
-import android.arch.persistence.room.Delete
+import androidx.room.Delete
 
 
 /**

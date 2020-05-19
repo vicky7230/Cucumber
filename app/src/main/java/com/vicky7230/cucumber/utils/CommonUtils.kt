@@ -16,7 +16,7 @@ object CommonUtils {
         val progressDialog = Dialog(context)
         progressDialog.show()
         if (progressDialog.window != null) {
-            progressDialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         }
         progressDialog.setContentView(R.layout.progress_dialog)
         progressDialog.setCancelable(false)

@@ -1,6 +1,6 @@
 package com.vicky7230.cucumber.ui.home
 
-import android.support.v7.util.DiffUtil
+import androidx.recyclerview.widget.DiffUtil
 import com.vicky7230.cucumber.data.network.model.recipes.Recipe
 
 

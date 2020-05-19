@@ -3,15 +3,15 @@ package com.vicky7230.cucumber.ui.home.search
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.support.customtabs.CustomTabsIntent
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.vicky7230.cucumber.R
 import com.vicky7230.cucumber.data.network.model.recipes.Recipe
 import com.vicky7230.cucumber.ui.base.BaseFragment
@@ -28,8 +28,10 @@ class SearchFragment : BaseFragment(), SearchMvpView, SearchAdapter.Callback {
 
     @Inject
     lateinit var linearLayoutManager: LinearLayoutManager
+
     @Inject
     lateinit var searchAdapter: SearchAdapter
+
     @Inject
     lateinit var customTabsIntent: CustomTabsIntent
 
@@ -46,9 +48,9 @@ class SearchFragment : BaseFragment(), SearchMvpView, SearchAdapter.Callback {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
         presenter.onAttach(this)
@@ -59,20 +61,20 @@ class SearchFragment : BaseFragment(), SearchMvpView, SearchAdapter.Callback {
     override fun setUp(view: View) {
         searchList.layoutManager = linearLayoutManager
         searchList.addItemDecoration(
-            DividerItemDecoration(
-                activity,
-                DividerItemDecoration.VERTICAL
-            )
+                DividerItemDecoration(
+                        activity,
+                        DividerItemDecoration.VERTICAL
+                )
         )
         searchList.adapter = searchAdapter
 
-        clear_search.setOnClickListener({ _ ->
-            search_edit_text.text.clear()
+        clear_search.setOnClickListener { _ ->
+            search_edit_text.text?.clear()
             searchAdapter.refreshItems(ArrayList())
-        })
+        }
 
         searchList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 val visibleItemCount = linearLayoutManager.childCount
                 val totalItemCount = linearLayoutManager.itemCount
@@ -80,9 +82,9 @@ class SearchFragment : BaseFragment(), SearchMvpView, SearchAdapter.Callback {
 
                 if (visibleItemCount + pastVisibleItems >= totalItemCount && !isLoading) {
                     searchAdapter.addItem(
-                        Recipe(
-                            type = "LOADING"
-                        )
+                            Recipe(
+                                    type = "LOADING"
+                            )
                     )
                     presenter.getNextPage()
                     isLoading = true
@@ -131,12 +133,12 @@ class SearchFragment : BaseFragment(), SearchMvpView, SearchAdapter.Callback {
     }
 
     override fun onSingleClick(sourceUrl: String) {
-        customTabsIntent.launchUrl(activity, Uri.parse(sourceUrl))
+        customTabsIntent.launchUrl(context!!, Uri.parse(sourceUrl))
     }
 
     override fun showErrorInRecyclerView() {
         val loadingMoreViewHolder =
-            searchList.findViewHolderForAdapterPosition(searchAdapter.itemCount - 1) as SearchAdapter.LoadingItemViewHolder?
+                searchList.findViewHolderForAdapterPosition(searchAdapter.itemCount - 1) as SearchAdapter.LoadingItemViewHolder?
         if (loadingMoreViewHolder != null) {
             loadingMoreViewHolder.itemView.loading.visibility = View.GONE
             loadingMoreViewHolder.itemView.retry_button.visibility = View.VISIBLE

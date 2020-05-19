@@ -5,14 +5,14 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.customtabs.CustomTabsIntent
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.ArrayAdapter
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.vicky7230.cucumber.R
 import com.vicky7230.cucumber.data.network.model.recipes.Recipe
 import com.vicky7230.cucumber.ui.base.BaseFragment
@@ -27,14 +27,19 @@ import javax.inject.Inject
 class RecipesFragment : BaseFragment(), RecipesMvpView, RecipesAdapter.Callback {
     @Inject
     lateinit var presenter: RecipesMvpPresenter<RecipesMvpView>
+
     @Inject
     lateinit var linearLayoutManager: LinearLayoutManager
+
     @Inject
     lateinit var itemOffsetDecoration: ItemOffsetDecoration
+
     @Inject
     lateinit var recipesItemAnimator: RecipesItemAnimator
+
     @Inject
     lateinit var recipesAdapter: RecipesAdapter
+
     @Inject
     lateinit var customTabsIntent: CustomTabsIntent
     var isLoading = false
@@ -51,9 +56,9 @@ class RecipesFragment : BaseFragment(), RecipesMvpView, RecipesAdapter.Callback 
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recipes, container, false)
         presenter.onAttach(this)
@@ -70,7 +75,7 @@ class RecipesFragment : BaseFragment(), RecipesMvpView, RecipesAdapter.Callback 
         recipeList.adapter = recipesAdapter
 
         recipeList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 val visibleItemCount = linearLayoutManager.childCount
                 val totalItemCount = linearLayoutManager.itemCount
@@ -78,9 +83,9 @@ class RecipesFragment : BaseFragment(), RecipesMvpView, RecipesAdapter.Callback 
 
                 if (visibleItemCount + pastVisibleItems >= totalItemCount && !isLoading) {
                     recipesAdapter.addItem(
-                        Recipe(
-                            type = "LOADING"
-                        )
+                            Recipe(
+                                    type = "LOADING"
+                            )
                     )
                     presenter.getRecipes()
                     isLoading = true
@@ -119,27 +124,27 @@ class RecipesFragment : BaseFragment(), RecipesMvpView, RecipesAdapter.Callback 
     }
 
     override fun onSingleClick(sourceUrl: String) {
-        customTabsIntent.launchUrl(activity, Uri.parse(sourceUrl))
+        customTabsIntent.launchUrl(context!!, Uri.parse(sourceUrl))
     }
 
     override fun showIngredients(ingredients: List<String>?) {
         val layoutInflater =
-            activity!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                activity!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = layoutInflater.inflate(R.layout.ingredients_dialog_view, null, false)
         view.title.setText(R.string.ingredients)
         view.ingredients_list.adapter =
-                ArrayAdapter(activity, R.layout.ingredients_list_item, ingredients)
+                ArrayAdapter(context!!, R.layout.ingredients_list_item, ingredients!!)
 
-        val dialog = Dialog(activity)
+        val dialog = Dialog(context!!)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(view)
-        dialog.window.attributes.windowAnimations = R.style.DialogTheme
+        dialog.window?.attributes?.windowAnimations = R.style.DialogTheme
         dialog.show()
     }
 
     override fun showErrorInRecyclerView() {
         val loadingMoreViewHolder =
-            recipeList.findViewHolderForAdapterPosition(recipesAdapter.itemCount - 1) as RecipesAdapter.LoadingMoreViewHolder?
+                recipeList.findViewHolderForAdapterPosition(recipesAdapter.itemCount - 1) as RecipesAdapter.LoadingMoreViewHolder?
         if (loadingMoreViewHolder != null) {
             loadingMoreViewHolder.itemView.loading.visibility = View.GONE
             loadingMoreViewHolder.itemView.retry_button.visibility = View.VISIBLE

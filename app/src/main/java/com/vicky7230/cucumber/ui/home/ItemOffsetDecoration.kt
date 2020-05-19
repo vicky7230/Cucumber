@@ -1,7 +1,7 @@
 package com.vicky7230.cucumber.ui.home
 
 import android.graphics.Rect
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 
 
@@ -11,10 +11,10 @@ import android.view.View
 class ItemOffsetDecoration(private val offset: Int) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
-        outRect: Rect,
-        view: View,
-        parent: RecyclerView,
-        state: RecyclerView.State
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
     ) {
         val position = parent.getChildAdapterPosition(view)
         if (position != 0)

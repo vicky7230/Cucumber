@@ -1,10 +1,10 @@
 package com.vicky7230.cucumber.di.module
 
 import android.app.Application
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import android.content.Context
-import android.support.customtabs.CustomTabsIntent
-import android.support.v4.content.ContextCompat
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.content.ContextCompat
 import com.vicky7230.cucumber.CucumberApplication
 import com.vicky7230.cucumber.R
 import com.vicky7230.cucumber.data.AppDataManager

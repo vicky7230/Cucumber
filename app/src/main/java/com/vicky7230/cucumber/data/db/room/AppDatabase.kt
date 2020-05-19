@@ -1,7 +1,7 @@
 package com.vicky7230.cucumber.data.db.room
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.RoomDatabase
+import androidx.room.Database
+import androidx.room.RoomDatabase
 import com.vicky7230.cayenne.data.db.room.RecipeDao
 import com.vicky7230.cucumber.data.network.model.recipes.Recipe
 

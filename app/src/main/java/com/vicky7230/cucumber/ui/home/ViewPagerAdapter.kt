@@ -1,8 +1,8 @@
 package com.vicky7230.cucumber.ui.home
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import com.vicky7230.cucumber.ui.home.likes.LikesFragment
 import com.vicky7230.cucumber.ui.home.recipes.RecipesFragment
 import com.vicky7230.cucumber.ui.home.search.SearchFragment
@@ -12,12 +12,12 @@ import com.vicky7230.cucumber.ui.home.search.SearchFragment
  */
 class ViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 
-    override fun getItem(position: Int): Fragment? {
+    override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> RecipesFragment.newInstance()
             1 -> LikesFragment.newInstance()
             2 -> SearchFragment.newInstance()
-            else -> null
+            else -> RecipesFragment.newInstance()
         }
     }
 

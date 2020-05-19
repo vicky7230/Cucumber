@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Cucumber.iml" filepath="$PROJECT_DIR$/Cucumber.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/Cucumber-app.iml" filepath="$PROJECT_DIR$/app/Cucumber-app.iml" group="Cucumber/app" />
+      <module fileurl="file://$PROJECT_DIR$/DATA-Cucumber.iml" filepath="$PROJECT_DIR$/DATA-Cucumber.iml" group="Cucumber" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
